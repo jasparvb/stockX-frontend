@@ -1,4 +1,4 @@
-# <img src="https://raw.githubusercontent.com/jasparvb/isports-capstone/master/static/img/isports-logo.png" alt="alt text" width="150px" height="auto">  
+# <img src="https://raw.githubusercontent.com/jasparvb/stockX-frontend/master/public/stockX-logo.png" alt="alt text" width="150px" height="auto">  
 The purpose of stockX is to make it easy to look up and follow your favorite stock indices.
 
 
@@ -22,4 +22,4 @@ In order to display the data in a graph, the site uses the javascript library D3
 ## Database Diagram
 An overview of how the local database is set up.
 
-![](https://raw.githubusercontent.com/jasparvb/isports-capstone/master/static/img/tables-diagram.JPG)
+![](https://raw.githubusercontent.com/jasparvb/isports-capstone/master/static/img/tables.JPG)
