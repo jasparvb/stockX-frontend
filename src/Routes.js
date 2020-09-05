@@ -5,7 +5,7 @@ import Login from "./Login";
 import Lists from "./Lists";
 import StockDetails from "./StockDetails";
 
-function Routes() {
+function Routes(setToken) {
     return (
         <Switch>
             <Route path="/" exact>
