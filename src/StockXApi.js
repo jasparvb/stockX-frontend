@@ -4,7 +4,9 @@ const BASE_URL = process.env.BASE_URL || "http://localhost:3001";
 
 class StockXApi {
     static async request(endpoint, paramsOrData = {}, verb = "get") {
-        paramsOrData._token = localStorage.getItem("stockx-token");
+        if(paramsOrData._token) {
+            paramsOrData._token = localStorage.getItem("stockx-token");
+        }
     
         console.debug("API Call:", endpoint, paramsOrData, verb);
   
@@ -55,8 +57,8 @@ class StockXApi {
         return res.stocks;
     }
 
-    static async search(search = {}) {
-        let res = await this.request(`stocks/search`, search);
+    static async search(search = '') {
+        let res = await this.request(`api/search/${search}`);
         return res.stocks;
     }
 }
