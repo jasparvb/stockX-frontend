@@ -1,3 +1,21 @@
+.AutoCompleteItem {
+  text-align: left;
+  padding: 6px 17px;
+}
+
 .AutoCompleteItem.active {
   background: rgb(0 200 5 / 5%);
+}
+
+.AutoCompleteItem.active h3{
+  color: rgb(0 200 5);
+}
+
+.AutoCompleteItem h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
+.AutoCompleteItem p {
+  margin: 0;
 }

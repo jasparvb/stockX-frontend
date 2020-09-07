@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import StockXApi from "./StockXApi";
 import AutoCompleteItem from './AutoCompleteItem';
+import './Search.css';
 
 function Search({search}) {
     const INITIAL_STATE = {query: ""};
@@ -96,7 +97,7 @@ function Search({search}) {
                     a
                 />
             </form>
-            <div className="autocomplete">
+            <div className={`autocomplete ${autoData.length ? "active" : ""}`}>
               { autoData ? autoComplete : ''}
             </div>
         </div>

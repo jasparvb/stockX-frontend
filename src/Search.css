@@ -1,0 +1,30 @@
+.Search {
+  width: 40%;
+  position: relative;
+}
+
+input.form-control.form-control-lg {
+  width: 100%;
+}
+
+.autocomplete.active {
+  position: absolute;
+  background: white;
+  z-index: 1;
+  border: 1px solid #ced4da;
+  border-top: none;
+  top: 44px;
+  padding-top: 6px;
+  width: 100%;
+  border-radius: 0 0 0.3rem 0.3rem;
+}
+
+.autocomplete a {
+  text-decoration: none;
+  color: #2e2e2e;
+}
+
+.form-control:focus, .form-control:active {
+  border-color: #ced4da;
+  box-shadow: none;
+}
