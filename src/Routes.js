@@ -4,7 +4,6 @@ import Home from "./Home";
 import Login from "./Login";
 import Lists from "./Lists";
 import StockDetails from "./StockDetails";
-import SearchResults from "./SearchResults";
 
 function Routes(setToken) {
     return (
@@ -18,10 +17,7 @@ function Routes(setToken) {
             <Route path="/lists" exact>
                 <Lists />
             </Route>
-            <Route path="/search" exact>
-                <SearchResults />
-            </Route>
-            <Route path="/:stockId" exact>
+            <Route path="/:ticker" exact>
                 <StockDetails />
             </Route>
             <Redirect to="/" />

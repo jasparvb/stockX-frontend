@@ -7,11 +7,7 @@ input.form-control.form-control-lg {
   width: 100%;
 }
 
-.autocomplete.active {
-  display: none;
-}
-
-.Search input:focus + .autocomplete.active {
+.autocomplete {
   position: absolute;
   display: block;
   background: white;

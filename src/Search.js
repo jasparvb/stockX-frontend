@@ -1,56 +1,54 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import StockXApi from "./StockXApi";
 import AutoCompleteItem from './AutoCompleteItem';
 import './Search.css';
+import debounce from 'lodash/debounce';
+import { useClickOutside } from 'react-click-outside-hook'
 
-function Search({search}) {
+function Search() {
     const INITIAL_STATE = {query: ""};
     const INITIAL_AUTO_STATE = [];
     const [formData, setFormData] = useState(INITIAL_STATE);
     const [autoData, setAutoData] = useState(INITIAL_AUTO_STATE);
     const [selected, setSelected] = useState(1);
+    const [ref, hasClickedOutside] = useClickOutside();
     const history = useHistory();
+    //use debounce to limit API calls when typing fast
+    const limitCalls = useCallback(debounce(setAutoComplete, 400), []);
 
-    /** Send {name, quantity} to parent
-     *    & clear form. */
-  
-    const handleSubmit = evt => {
+    //reset state data and redirect to correct ticker page
+    function handleSubmit(evt) {
       evt.preventDefault();
       if(autoData.length){
-        setAutoData(data => INITIAL_AUTO_STATE);
-        setFormData(data => INITIAL_STATE);
+        setFormData(INITIAL_STATE);
+        setAutoData(INITIAL_AUTO_STATE);
+        history.push(`/${autoData[selected - 1].ticker}`)
         setSelected(1);  
-        history.push(`/details/${autoData[selected - 1].ticker}`)
       }
     };
   
-    /** Update local state w/curr state of input elem */
-  
-    async function handleChange(evt) {
-      const { name, value } = evt.target;
-      setFormData(fData => ({
-        ...fData,
-        [name]: value
-      }));
+    //Make API call to get search results and save in state
+    async function setAutoComplete(value) {
       if(value) {
         const res = await StockXApi.search(value);
         setAutoData(res);
-        console.log(res);
       } else {
         setAutoData(INITIAL_AUTO_STATE);
       }
+    }
+
+    //Set form value, make API call, and reset selected to first item
+    function handleChange(evt) {
+      const { value } = evt.target;
+      setFormData({query: value});
+      limitCalls(value);
       setSelected(1);
     };
 
     function onKeyDown(evt) {
-      if (evt.keyCode === 13) {
-        if(selected){
-          history.push()
-        }
-      }
       //when 'up arrow' is pressed
-      else if (evt.keyCode === 38) {
+      if (evt.keyCode === 38) {
         if (selected === 1) {
           setSelected(autoData.length);
         } else {
@@ -67,41 +65,34 @@ function Search({search}) {
       }
     }
 
-    function clearForm() {
-      setAutoData(INITIAL_AUTO_STATE);
-      setFormData(INITIAL_STATE);
-      setSelected(1);
-    }
-
-    const autoComplete = autoData.map((a, i)=> 
-      <AutoCompleteItem 
-        key={a.ticker}
-        id={i}
-        ticker={a.ticker} 
-        name={a.name}
-        assetType={a.assetType} 
-        countryCode={a.countryCode}
-        handleSubmit={handleSubmit}
-        selected={selected}
-        setSelected={setSelected}
-      />
-    );
-
     /** render form */
   
     return (
-        <div className="Search mb-4">
-            <form className="form-inline" autocomplete="off" onSubmit={handleSubmit}>
+        <div ref={ref} className="Search mb-4">
+            <form className="form-inline" autoComplete="off" onSubmit={handleSubmit}>
               <input className="form-control form-control-lg flex-grow-1" 
                   name="query" 
                   placeholder="Search for stock or mutual fund" 
-                  value={formData.search}
+                  value={formData.query}
                   onChange={handleChange}
                   onKeyDown={onKeyDown}
               />
-              <div className={`autocomplete ${autoData.length ? "active" : ""}`}>
-                { autoData ? autoComplete : ''}
-              </div>
+              {!hasClickedOutside &&
+                <div onClick={handleSubmit} className={`autocomplete ${autoData.length ? "active" : ""}`}>
+                  {autoData.map((a, i)=> 
+                    <AutoCompleteItem 
+                      key={a.ticker}
+                      id={i}
+                      ticker={a.ticker} 
+                      name={a.name}
+                      assetType={a.assetType} 
+                      countryCode={a.countryCode}
+                      selected={selected}
+                      setSelected={setSelected}
+                    />
+                  )}
+                </div>
+              }
             </form>
         </div>
     );

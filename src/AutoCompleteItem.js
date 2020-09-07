@@ -1,11 +1,10 @@
 import React from "react";
 import './AutoCompleteItem.css';
 
-function AutoCompleteItem({id, ticker, name, assetType, countryCode, handleSubmit, selected, setSelected}) {
+function AutoCompleteItem({id, ticker, name, assetType, countryCode, selected, setSelected}) {
     return (
       <div 
         className={`AutoCompleteItem ${selected - 1 === id ? "active" : ""}`}
-        onClick={handleSubmit} 
         onMouseEnter={() => setSelected(id + 1)}
       >
         <h3>{ticker} &ndash; {name}</h3>
