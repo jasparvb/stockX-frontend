@@ -9,14 +9,20 @@ function Search({search}) {
     const INITIAL_AUTO_STATE = [];
     const [formData, setFormData] = useState(INITIAL_STATE);
     const [autoData, setAutoData] = useState(INITIAL_AUTO_STATE);
-    const [selected, setSelected] = useState(0);
+    const [selected, setSelected] = useState(1);
     const history = useHistory();
 
     /** Send {name, quantity} to parent
      *    & clear form. */
   
     const handleSubmit = evt => {
-      evt.preventDefault();      
+      evt.preventDefault();
+      if(autoData.length){
+        setAutoData(data => INITIAL_AUTO_STATE);
+        setFormData(data => INITIAL_STATE);
+        setSelected(1);  
+        history.push(`/details/${autoData[selected - 1].ticker}`)
+      }
     };
   
     /** Update local state w/curr state of input elem */
@@ -34,7 +40,7 @@ function Search({search}) {
       } else {
         setAutoData(INITIAL_AUTO_STATE);
       }
-      setSelected(0);
+      setSelected(1);
     };
 
     function onKeyDown(evt) {
@@ -46,27 +52,25 @@ function Search({search}) {
       //when 'up arrow' is pressed
       else if (evt.keyCode === 38) {
         if (selected === 1) {
-          console.log("up zero");
-          setSelected(autoData.length - 1);
+          setSelected(autoData.length);
+        } else {
+          setSelected(current => current - 1);
         }
-        setSelected(current => current - 1);
-        console.log("up", selected);
       }
       //when 'down-arrow' is pressed 
       else if (evt.keyCode === 40) {
-        if (selected === autoData.length - 1) {
-          console.log("down full", selected);
+        if (selected === autoData.length) {
           setSelected(1);
+        } else {
+          setSelected(current => current + 1);
         }
-        setSelected(current => current + 1);
-        console.log("down", selected);
       }
     }
 
     function clearForm() {
       setAutoData(INITIAL_AUTO_STATE);
       setFormData(INITIAL_STATE);
-      setSelected(0);
+      setSelected(1);
     }
 
     const autoComplete = autoData.map((a, i)=> 
@@ -77,7 +81,7 @@ function Search({search}) {
         name={a.name}
         assetType={a.assetType} 
         countryCode={a.countryCode}
-        clearForm={clearForm}
+        handleSubmit={handleSubmit}
         selected={selected}
         setSelected={setSelected}
       />
@@ -88,18 +92,17 @@ function Search({search}) {
     return (
         <div className="Search mb-4">
             <form className="form-inline" autocomplete="off" onSubmit={handleSubmit}>
-                <input className="form-control form-control-lg flex-grow-1" 
-                    name="query" 
-                    placeholder="Enter search term.." 
-                    value={formData.search}
-                    onChange={handleChange}
-                    onKeyDown={onKeyDown}
-                    a
-                />
+              <input className="form-control form-control-lg flex-grow-1" 
+                  name="query" 
+                  placeholder="Search for stock or mutual fund" 
+                  value={formData.search}
+                  onChange={handleChange}
+                  onKeyDown={onKeyDown}
+              />
+              <div className={`autocomplete ${autoData.length ? "active" : ""}`}>
+                { autoData ? autoComplete : ''}
+              </div>
             </form>
-            <div className={`autocomplete ${autoData.length ? "active" : ""}`}>
-              { autoData ? autoComplete : ''}
-            </div>
         </div>
     );
 }
