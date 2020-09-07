@@ -19,3 +19,7 @@
 .AutoCompleteItem p {
   margin: 0;
 }
+
+.AutoCompleteItem:hover {
+  cursor: pointer;
+}

@@ -8,7 +8,12 @@ input.form-control.form-control-lg {
 }
 
 .autocomplete.active {
+  display: none;
+}
+
+.Search input:focus + .autocomplete.active {
   position: absolute;
+  display: block;
   background: white;
   z-index: 1;
   border: 1px solid #ced4da;
