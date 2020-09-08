@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 
 import { getStockFromAPI } from "./actions/stocks";
+import NewsCard from './NewsCard';
 
 // Display a stock
 
@@ -28,6 +29,18 @@ function StockDetails() {
         <small className="text-muted float-right">{ticker}</small>
       </h1>
       <p>{stock.description}</p>
+
+      <div className="articles">
+        <h3>News Articles</h3>
+        {stock.articles.map((s, i) => (
+          <NewsCard
+            id={i}
+            headline={s.headline}
+            image={s.image}
+            url={s.url}
+          />
+        ))}
+      </div>
     </div>
   );
 }
