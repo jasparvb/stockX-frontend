@@ -6,9 +6,6 @@ const INITIAL_STATE = {};
 
 function stocks(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case RESET_ALL:
-      return { ...INITIAL_STATE };
-
     case LOAD_STOCK:
       return {
         ...state,

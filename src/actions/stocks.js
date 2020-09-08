@@ -1,12 +1,13 @@
 import { LOAD_STOCK } from "./types";
-import StockXApi from "./StockXApi";
+import StockXApi from "../StockXApi";
 
 /* Action to load a stock given ticker */
 
 function getStockFromAPI(ticker) {
   return async function (dispatch) {
-    const res = await StockXApi.getStockDetails(ticker);
-    dispatch(gotStock(res.stock));
+    debugger;
+    const stock = await StockXApi.getStockDetails(ticker);
+    dispatch(gotStock(stock));
   };
 }
 

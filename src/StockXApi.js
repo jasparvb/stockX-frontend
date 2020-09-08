@@ -64,7 +64,7 @@ class StockXApi {
 
     static async getStockDetails(ticker) {
         let res = await this.request(`api/stock/${ticker}`);
-        return res.stocks;
+        return res.stock;
     }
 }
 
