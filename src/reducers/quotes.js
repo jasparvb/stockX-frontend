@@ -1,12 +1,12 @@
-import { LOAD_STOCK } from "../actions/types";
+import { LOAD_QUOTE } from "../actions/types";
 
-/* Reducer for stocks */
+/* Reducer for quotes */
 
 const INITIAL_STATE = {};
 
-function stocks(state = INITIAL_STATE, action) {
+function quotes(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case LOAD_STOCK:
+    case LOAD_QUOTE:
       return {
         ...state,
         [action.payload.ticker]: { ...action.payload }
@@ -17,4 +17,4 @@ function stocks(state = INITIAL_STATE, action) {
   }
 }
 
-export default stocks;
+export default quotes;
