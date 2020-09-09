@@ -16,6 +16,7 @@ function StockDetails() {
   const dispatch = useDispatch();
   const missing = !stock;
   const missingQuote = !quote;
+  let chartData = {};
 
   //load stock details from api if not in state
   useEffect(function() {
@@ -28,16 +29,69 @@ function StockDetails() {
   useEffect(function() {
     if (missingQuote) {
       dispatch(getStockQuoteFromAPI(ticker, "today"));
-    }
+    } 
   }, [missingQuote, ticker, dispatch]);
 
   if (missing) return "Loading...";
+  if(!missingQuote) {
+    console.log(quote.labels);
+    console.log(quote.data);
+    chartData = {
+      labels: quote.labels,
+      datasets: [
+        {
+          label: false,
+          data: quote.data,
+          backgroundColor: ['rgb(0 200 5 / 10%)'],
+          borderColor: ['rgb(0 200 5)'],
+          borderWidth: 2,
+          spanGaps: true,
+          lineTension: 0,
+          pointRadius: 4,
+          pointBorderColor: 'rgba(0, 0, 0, 0)',
+          pointBackgroundColor: 'rgba(0, 0, 0, 0)',
+          pointHoverRadius: 6,
+          pointHoverBorderColor: 'rgb(0 200 5)',
+          pointHoverBackgroundColor: 'rgb(0 200 5)'
+        }
+      ]
+    }
+  }
+
+  const chartOptions = {
+    responsive: true,
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            autoSkip: true  
+          },
+          gridLines: {
+            display: true,
+            drawOnChartArea: false
+          }
+        }
+      ],
+      xAxes: [
+        {
+          ticks: {
+            autoSkip: true  
+          },
+          gridLines: {
+            display: true,
+            drawOnChartArea: false
+          }
+        }
+      ]
+    }
+  }
 
   return (
     <div className="StockDetails">
       <h1 className="mt-3 mb-3">
         {stock.name} <span>({ticker})</span>
       </h1>
+      {!missingQuote && <Line data={chartData} options={chartOptions} />}
       <h3>About</h3>
       <hr/>
       <p className="mb-5">{stock.description}</p>
