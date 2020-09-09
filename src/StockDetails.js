@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-
 import { getStockFromAPI } from "./actions/stocks";
 import NewsCard from './NewsCard';
+import './StockDetails.css';
 
 // Display a stock
 
@@ -23,24 +23,28 @@ function StockDetails() {
   if (missing) return "Loading...";
 
   return (
-    <div>
+    <div className="StockDetails">
       <h1 className="mt-3 mb-3">
-        {stock.name}
-        <small className="text-muted float-right">{ticker}</small>
+        {stock.name} <span>({ticker})</span>
       </h1>
-      <p>{stock.description}</p>
-
-      <div className="articles">
-        <h3>News Articles</h3>
-        {stock.articles.map((s, i) => (
-          <NewsCard
-            id={i}
-            headline={s.headline}
-            image={s.image}
-            url={s.url}
-          />
-        ))}
-      </div>
+      <h3>About</h3>
+      <hr/>
+      <p className="mb-5">{stock.description}</p>
+      {stock.articles[0] &&
+        <div className="articles">
+          <h3>Related News</h3>
+          <hr/>
+          {stock.articles.map((s, i) => (
+            <NewsCard
+              key={i}
+              headline={s.headline}
+              image={s.image}
+              url={s.url}
+              source={s.source}
+            />
+          ))}
+        </div>
+      }
     </div>
   );
 }

@@ -1,0 +1,43 @@
+.NewsCard {
+  border-radius: 4px;
+  margin: 0 -30px;
+  padding: 30px;
+  position: relative;
+  -webkit-transition: background 150ms;
+  transition: background 150ms;
+}
+
+.NewsCard .box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 134px;
+}
+
+.NewsCard .headline-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.NewsCard .image-box {
+  border-radius: 4px;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  height: 134px;
+  width: 196px;
+}
+
+.NewsCard .image-box img {
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  width: 100%;
+}

@@ -5,7 +5,6 @@ import StockXApi from "../StockXApi";
 
 function getStockFromAPI(ticker) {
   return async function (dispatch) {
-    debugger;
     const stock = await StockXApi.getStockDetails(ticker);
     dispatch(gotStock(stock));
   };
