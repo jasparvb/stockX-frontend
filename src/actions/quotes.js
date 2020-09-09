@@ -6,6 +6,7 @@ import StockXApi from "../StockXApi";
 function getStockQuoteFromAPI(ticker, range) {
   return async function (dispatch) {
     const quote = await StockXApi.getStockQuote(ticker, range);
+    quote.ticker = ticker;
     dispatch(gotStockQuote(quote));
   };
 }
