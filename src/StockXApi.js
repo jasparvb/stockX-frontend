@@ -66,6 +66,11 @@ class StockXApi {
         let res = await this.request(`api/stock/${ticker}`);
         return res.stock;
     }
+
+    static async getStockQuote(ticker, range) {
+        let res = await this.request(`api/quote/${ticker}`, range);
+        return res.stock;
+    }
 }
 
 
