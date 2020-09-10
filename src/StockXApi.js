@@ -4,7 +4,7 @@ const BASE_URL = process.env.BASE_URL || "http://localhost:3001";
 
 class StockXApi {
     static async request(endpoint, paramsOrData = {}, verb = "get") {
-        if(paramsOrData._token) {
+        if(!paramsOrData._token) {
             paramsOrData._token = localStorage.getItem("stockx-token");
         }
     
@@ -39,9 +39,14 @@ class StockXApi {
 
     static async addList(data) {
         let res = await this.request(`lists`, data, "post");
-        return res.token;
+        return res.list;
     }
     
+    static async getLists() {
+        let res = await this.request(`lists`);
+        return res.lists;
+    }
+
     static async getUser(username) {
         let res = await this.request(`users/${username}`);
         return res.user;
