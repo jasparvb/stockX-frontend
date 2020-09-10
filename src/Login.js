@@ -4,6 +4,7 @@ import Alert from "./Alert";
 import './Login.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { register, login } from './actions/users';
+import { addAlert } from './actions/alerts';
 
 function Login() {
   const [activeTab, setActiveTab] = useState('login');
@@ -54,6 +55,7 @@ function Login() {
     try {
       //login or register user
       endpoint === "login" ? dispatch(login(data)) : dispatch(register(data));
+      dispatch(addAlert(`Welcome ${data.username}!`, "success"));
       setLoginData(INITIAL_STATE);
     } catch (errors) {
       return setLoginData(data => ({ ...data, errors }));
@@ -113,9 +115,6 @@ function Login() {
                 />
               </div>          
             }
-            {loginData.errors.length ? (
-              <Alert type="danger" messages={loginData.errors} />
-            ) : null}
             <button type="submit" className="btn btn-primary float-right">Submit</button>
           </form>
         </div>

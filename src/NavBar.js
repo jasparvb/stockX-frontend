@@ -6,6 +6,7 @@ import stockXLogo from "./stockX-logo.png";
 import Search from './Search';
 import './NavBar.css';
 import { logout } from './actions/users';
+import { addAlert } from './actions/alerts';
 
 function Navbar() {
   const history = useHistory();
@@ -14,6 +15,7 @@ function Navbar() {
   const logoutUser = () => {
     dispatch(logout());
     localStorage.removeItem('stockx-token');
+    dispatch(addAlert("You have successfully logged out", "success"));
     history.push('/');
   }
 

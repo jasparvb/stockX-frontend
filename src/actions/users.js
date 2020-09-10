@@ -1,12 +1,19 @@
 import { LOGIN_USER, REGISTER_USER, LOGOUT_USER } from "./types";
 import StockXApi from "../StockXApi";
+import { addAlert } from './alerts';
 
 /* Actions to handle user registration, login and logout */
 
 function login(data) {
   return async function (dispatch) {
-    const user = await StockXApi.login(data);
-    dispatch(userLoggedIn(user));
+    try {
+      const user = await StockXApi.login(data);
+      dispatch(userLoggedIn(user));
+    } catch(err) {
+      err.forEach(e => {
+        dispatch(addAlert(e, "danger"));
+      });
+    }
   };
 }
 
@@ -16,11 +23,13 @@ function userLoggedIn(user) {
 
 function register(data) {
   return async function (dispatch) {
-    try{
+    try {
       const user = await StockXApi.register(data);
       dispatch(userRegistered(user));
     } catch(err) {
-      console.log("caught error", err);
+      err.forEach(e => {
+        dispatch(addAlert(e, "danger"));
+      });
     }
   };
 }
