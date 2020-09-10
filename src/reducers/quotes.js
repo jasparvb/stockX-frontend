@@ -15,7 +15,7 @@ function quotes(state = INITIAL_STATE, action) {
       } 
       return {
         ...state,
-        [action.payload.ticker]: { data, labels }
+        [action.payload.ticker]: {...state[action.payload.ticker], [action.payload.range]: { data, labels }}
       };
 
     default:

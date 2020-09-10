@@ -17,3 +17,37 @@
   max-width: 800px;
   font-size: 1.2rem;
 }
+
+.StockDetails .graph {
+  margin: 40px 0;
+}
+
+.StockDetails .graph-nav {
+  margin: 0 70px;
+}
+
+.StockDetails .graph-nav button {
+  margin: 0px 10px;
+  width: 38px;
+  height: 33px;
+  border: 1px solid #ced4da;
+  background: white;
+  border-radius: 2px;
+  font-size: .8rem;
+  text-align: center;
+}
+
+.StockDetails .graph-nav button:hover {
+  border: 1px solid rgb(0 200 5);
+  color: rgb(0 200 5);
+}
+
+.StockDetails .graph-nav button.active {
+  border: 2px solid rgb(0 200 5);
+  color: rgb(0 200 5);
+  font-weight: 700;
+}
+
+.StockDetails .graph-nav button:focus {
+  outline: none;
+}
