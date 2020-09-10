@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import Alert from "./Alert";
 import './Login.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { register, login } from './actions/users';

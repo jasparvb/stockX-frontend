@@ -30,6 +30,9 @@ function Navbar() {
     {user ?
       <ul className="navbar-nav flex-row">
         <li className="nav-item">
+        <Link to="/lists" className="nav-link text-dark">Lists</Link>
+        </li>
+        <li className="nav-item">
         <Link to="#" onClick={logoutUser} className="nav-link text-dark">Logout</Link>
         </li>
       </ul>

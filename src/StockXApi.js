@@ -36,6 +36,11 @@ class StockXApi {
         let res = await this.request(`users`, data, "post");
         return res.token;
     }
+
+    static async addList(data) {
+        let res = await this.request(`lists`, data, "post");
+        return res.token;
+    }
     
     static async getUser(username) {
         let res = await this.request(`users/${username}`);
