@@ -1,11 +1,9 @@
 import React from "react";
 
-function Alert({ type, messages }) {
+function Alert({ type, message }) {
   return (
     <div className={`alert alert-${type}`} role="alert">
-      {messages.map(err => (
-        <p className="mb-0 small" key={err}>{err}</p>
-      ))}
+        <p className="mb-0 small">{message}</p>
     </div>
   );
 }

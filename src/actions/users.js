@@ -16,8 +16,12 @@ function userLoggedIn(user) {
 
 function register(data) {
   return async function (dispatch) {
-    const user = await StockXApi.register(data);
-    dispatch(userRegistered(user));
+    try{
+      const user = await StockXApi.register(data);
+      dispatch(userRegistered(user));
+    } catch(err) {
+      console.log("caught error", err);
+    }
   };
 }
 

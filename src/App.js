@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import './App.css';
 import NavBar from './NavBar';
+import Alerts from './Alerts';
 import Routes from './Routes';
 import { loadUser } from './actions/users';
 
@@ -23,6 +24,7 @@ function App() {
   return (
     <div className="App">
       <NavBar />
+      <Alerts />
       <Routes />
     </div>
   );
