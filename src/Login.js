@@ -54,7 +54,9 @@ function Login({setToken}) {
 
     try {
       //login or register user
-      dispatch([endpoint](data))
+      dispatch([endpoint](data));
+      const token = useSelector(st => st.users);
+      localStorage.setItem('stockx-token', token);
     } catch (errors) {
       return setLoginData(data => ({ ...data, errors }));
     }

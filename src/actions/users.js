@@ -25,4 +25,8 @@ function userRegistered(user) {
   return { type: REGISTER_USER, payload: user };
 }
 
-export { login, register };
+function logout() {
+  return { type: LOGOUT_USER};
+}
+
+export { login, register, logout };
