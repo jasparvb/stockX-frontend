@@ -5,14 +5,14 @@ import Login from "./Login";
 import Lists from "./Lists";
 import StockDetails from "./StockDetails";
 
-function Routes(setToken) {
+function Routes() {
     return (
         <Switch>
             <Route path="/" exact>
                 <Home />
             </Route>
             <Route exact path="/login">
-                <Login setToken={setToken} />
+                <Login />
             </Route>
             <Route path="/lists" exact>
                 <Lists />

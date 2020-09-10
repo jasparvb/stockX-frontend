@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import StockXApi from "./StockXApi";
 import Alert from "./Alert";
 import './Login.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { register, login } from './actions/users';
 
-function Login({setToken}) {
+function Login() {
   const [activeTab, setActiveTab] = useState('login');
   const INITIAL_STATE = { 
     username: "",
@@ -16,10 +15,10 @@ function Login({setToken}) {
   };
 
   const [loginData, setLoginData] = useState(INITIAL_STATE);
-  const users = useSelector(st => st.users);
   const history = useHistory();
   const dispatch = useDispatch();
-
+  const token = useSelector(st => st.users);
+  
   function setLogin() {
     setActiveTab('login');
   }
@@ -27,7 +26,8 @@ function Login({setToken}) {
     setActiveTab('signup');
   }
   //bounces logged in users to home page if already logged in
-  if (users.username) {
+  if (token) {
+    localStorage.setItem('stockx-token', token);
     history.push('/');
   }
 
@@ -35,7 +35,6 @@ function Login({setToken}) {
     evt.preventDefault();
     let endpoint;
     let data;
-    let token;
 
     if(activeTab === 'signup') {
       data = {
@@ -54,13 +53,11 @@ function Login({setToken}) {
 
     try {
       //login or register user
-      dispatch([endpoint](data));
-      const token = useSelector(st => st.users);
-      localStorage.setItem('stockx-token', token);
+      endpoint === "login" ? dispatch(login(data)) : dispatch(register(data));
+      setLoginData(INITIAL_STATE);
     } catch (errors) {
       return setLoginData(data => ({ ...data, errors }));
     }
-    history.push("/");
   };
 
   /** Update local state w/curr state of input elem */
@@ -73,21 +70,6 @@ function Login({setToken}) {
     }));
   };
 
-
-  const signupFields = (
-    <div>
-      <div className="form-group">
-        <label>Email</label>
-        <input 
-          type="email" 
-          name="email" 
-          className="form-control" 
-          value={loginData.email} 
-          onChange={handleChange}
-        />
-      </div>
-    </div>
-  );
 
   return (
     <div className="Login container col-md-6 offset-md-3 col-lg-4 offset-lg-4 mt-5 text-left">
@@ -119,7 +101,18 @@ function Login({setToken}) {
                 onChange={handleChange}
               />
             </div>
-            {activeTab === 'signup' ? signupFields : ''}
+            {activeTab === 'signup' && 
+              <div className="form-group">
+                <label>Email</label>
+                <input 
+                  type="email" 
+                  name="email" 
+                  className="form-control" 
+                  value={loginData.email} 
+                  onChange={handleChange}
+                />
+              </div>          
+            }
             {loginData.errors.length ? (
               <Alert type="danger" messages={loginData.errors} />
             ) : null}

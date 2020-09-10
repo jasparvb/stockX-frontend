@@ -29,4 +29,9 @@ function logout() {
   return { type: LOGOUT_USER};
 }
 
-export { login, register, logout };
+function loadUser(user) {
+  return { type: LOGIN_USER, payload: user };
+}
+
+
+export { login, register, logout, loadUser };
