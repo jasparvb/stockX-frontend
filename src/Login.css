@@ -1,0 +1,40 @@
+
+.Login button {
+  background: rgb(0 200 5);
+  border: 1px solid rgb(0 200 5);
+}
+
+.Login button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.Login button:hover {
+  background: rgb(0 200 5 / 70%);
+  border: 1px solid rgb(0 200 5 / 70%);
+}
+
+.Login .btn-group button {
+  border: 1px solid rgb(0 200 5);
+  background: white;
+  color: rgb(0 200 5);
+  border-bottom: none;
+}
+
+.Login .btn-group button.active {
+  border: 1px solid rgb(0 200 5);
+  background: rgb(0 200 5);
+  color: white;
+}
+
+.Login .btn-group button.login {
+  border-bottom-left-radius: 0;
+}
+
+.Login .btn-group button.signup {
+  border-bottom-right-radius: 0;
+}
+
+.Login .card {
+  border-top-right-radius: 0;
+}

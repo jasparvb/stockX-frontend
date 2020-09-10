@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import StockXApi from "./StockXApi";
 import Alert from "./Alert";
+import './Login.css';
 
 function Login({setToken}) {
     const [activeTab, setActiveTab] = useState('login');
@@ -83,11 +84,11 @@ function Login({setToken}) {
     );
 
     return (
-        <div className="container col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+        <div className="Login container col-md-6 offset-md-3 col-lg-4 offset-lg-4 mt-5 text-left">
             <div className="d-flex justify-content-end">
                 <div className="btn-group">
-                    <button className={`btn btn-primary ${activeTab === 'login' ? "active" : ""}`} onClick={setLogin}>Login</button>
-                    <button className={`btn btn-primary ${activeTab === 'signup' ? "active" : ""}`} onClick={setSignup}>Sign up</button>
+                    <button className={`btn login ${activeTab === 'login' ? "active" : ""}`} onClick={setLogin}>Login</button>
+                    <button className={`btn signup ${activeTab === 'signup' ? "active" : ""}`} onClick={setSignup}>Sign up</button>
                 </div>
             </div>
             <div className="card">
