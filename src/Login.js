@@ -28,6 +28,8 @@ function Login() {
   //bounces logged in users to home page if already logged in
   if (token) {
     localStorage.setItem('stockx-token', token);
+    dispatch(addAlert(`Welcome ${loginData.username}!`, "success"));
+    setLoginData(INITIAL_STATE);
     history.push('/');
   }
 
@@ -54,8 +56,6 @@ function Login() {
     try {
       //login or register user
       endpoint === "login" ? dispatch(login(data)) : dispatch(register(data));
-      dispatch(addAlert(`Welcome ${data.username}!`, "success"));
-      setLoginData(INITIAL_STATE);
     } catch (errors) {
       return setLoginData(data => ({ ...data, errors }));
     }

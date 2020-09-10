@@ -14,7 +14,7 @@ function AddListForm() {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    dispatch(addNewListAPI(text.title));
+    dispatch(addNewListAPI(text));
     setText(INITIAL_STATE);
   };
 
@@ -26,19 +26,21 @@ function AddListForm() {
   };
 
   return (
-    <div className="AddListForm container text-left mt-3">
+    <div className="AddListForm container text-left col-md-6 offset-md-3 col-lg-4 offset-lg-4 my-3">
+      <h3>Enter a title to create a new list</h3>
+      <p>Once you create a list, you can search for stocks and add them to your list for easy tracking.</p>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <input 
             name="title" 
             type="text"
             className="form-control" 
-            placeholder="New Comment"
+            placeholder="New list title"
             value={text.title} 
             onChange={handleChange}
           />
         </div>
-        <button type="submit" className="btn btn-primary float-left mt-1">Add</button>
+        <button type="submit" className="btn btn-primary mt-1">Add</button>
       </form>
     </div>
   );
