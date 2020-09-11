@@ -1,4 +1,4 @@
-import { ADD_LIST, LOAD_LISTS, REMOVE_LIST, LOGOUT_USER } from "../actions/types";
+import { ADD_LIST, LOAD_LISTS, REMOVE_LIST, LOGOUT_USER, ADD_STOCK, REMOVE_STOCK } from "../actions/types";
 
 /* Reducer for lists */
 

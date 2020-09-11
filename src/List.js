@@ -10,7 +10,7 @@ function List({id, name, stocks, removeList}) {
       {stocks && stocks.map(s => (
         <ListItem key={s.ticker} id={s.id} ticker={s.ticker} name={s.name} listId={id} />
       ))}
-      <button onClick={() => removeList(id)}>Delete List</button>
+      <button className="btn btn-primary btn-sm" onClick={() => removeList(id)}>Delete List</button>
     </div>
   );
 }

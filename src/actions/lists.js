@@ -43,7 +43,8 @@ function removedList(id) {
 function addNewStockAPI(ticker, name, listId) {
   return async function (dispatch) {
     const stock = await StockXApi.addStock({ticker, name, listId});
-    dispatch(addedStock(stock));
+    //dispatch(addedStock(stock));
+    getListsAPI();
   };
 }
 
@@ -55,8 +56,9 @@ function addedStock(stock) {
 function removeStockAPI(id, listId) {
   return async function (dispatch) {
     const message = await StockXApi.removeStock(id);
-    dispatch(removedStock(id, listId));
+    //dispatch(removedStock(id, listId));
     dispatch(addAlert(message, "success"));
+    getListsAPI();
   };
 }
 

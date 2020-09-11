@@ -5,6 +5,7 @@ import { getStockFromAPI } from "./actions/stocks";
 import { getStockQuoteFromAPI } from "./actions/quotes";
 import { getListsAPI } from "./actions/lists";
 import NewsCard from './NewsCard';
+import AddStockForm from './AddStockForm';
 import { Line } from 'react-chartjs-2';
 import './StockDetails.css';
 
@@ -137,9 +138,10 @@ function StockDetails() {
         {stock.name} <span>({ticker})</span>
       </h1>
       {token &&
-        <p className="float-right mb-3 mr-5">
-          <button className="btn btn-primary" onClick={() => setFormVisible(true)}>+ Add to List</button>
-        </p>
+        <div className="add-stock-form mb-3 mr-5">
+          <button className="float-right btn btn-primary" onClick={() => setFormVisible(true)}>+ Add to List</button>
+          <AddStockForm ticker={ticker} name={stock.name} />
+        </div>
       }
       {!missingQuote &&
         <div className="graph">

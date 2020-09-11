@@ -1,0 +1,54 @@
+import React, { useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { addAlert } from './actions/alerts';
+import { addNewStockAPI } from './actions/lists';
+import './AddStockForm.css';
+
+function AddStockForm({ticker, name}) {
+  const dispatch = useDispatch();
+
+  const INITIAL_STATE = { 
+    title: ""
+  };
+
+  const [text, setText] = useState(INITIAL_STATE);
+
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    dispatch(addNewStockAPI(text));
+    setText(INITIAL_STATE);
+  };
+
+  /** Update local state w/curr state of input elem */
+
+  const handleChange = evt => {
+    const { value } = evt.target;
+    setText({title: value});
+  };
+
+  return (
+    <div className="AddStockForm container-fluid text-left">
+      <div className="form-container">
+        <div className="form-column">
+          <h3>Enter a title to create a new list</h3>
+          <p>Once you create a list, you can search for stocks and add them to your list for easy tracking.</p>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <input 
+                name="title" 
+                type="text"
+                className="form-control" 
+                placeholder="New list title"
+                value={text.title} 
+                onChange={handleChange}
+              />
+            </div>
+            <button type="submit" className="btn btn-primary mt-1">Add</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default AddStockForm;
