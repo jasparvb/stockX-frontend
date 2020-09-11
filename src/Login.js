@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import './Login.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -26,12 +26,17 @@ function Login() {
     setActiveTab('signup');
   }
   //bounces logged in users to home page if already logged in
-  if (token) {
-    localStorage.setItem('stockx-token', token);
-    dispatch(addAlert(`Welcome ${loginData.username}!`, "success"));
-    setLoginData(INITIAL_STATE);
-    history.push('/');
-  }
+  useEffect(() => {
+    async function checkLogin() {
+      if (token) {
+        localStorage.setItem('stockx-token', token);
+        dispatch(addAlert(`Welcome ${loginData.username}!`, "success"));
+        setLoginData(INITIAL_STATE);
+        history.push('/');
+      }
+    }
+    checkLogin();
+  },[token])
 
   async function handleSubmit(evt) {
     evt.preventDefault();
@@ -55,7 +60,7 @@ function Login() {
 
     try {
       //login or register user
-      endpoint === "login" ? dispatch(login(data)) : dispatch(register(data));
+      endpoint === "login" ? await dispatch(login(data)) : await dispatch(register(data));
     } catch (errors) {
       return setLoginData(data => ({ ...data, errors }));
     }

@@ -1,23 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from 'react-redux';
-import { addAlert } from './actions/alerts';
-import { removeListAPI } from './actions/lists';
+import ListItem from './ListItem';
+import './List.css';
 
-function List({id, title, stocks}) {
-  const dispatch = useDispatch();
-
-  async function removeList() {
-    await dispatch(removeListAPI(id));
-    await dispatch(addAlert("List removed", "success"));
-  }
+function List({id, name, stocks, removeList}) {
 
   return (
     <div className="List">
-      <h3>{title}</h3>
+      <h3>{name}</h3>
       {stocks && stocks.map(s => (
-        <ListItem key={s.ticker} ticker={s.ticker} name={s.name} />
+        <ListItem key={s.ticker} id={s.id} ticker={s.ticker} name={s.name} listId={id} />
       ))}
-      <button onClick={removeList}>Delete List</button>
+      <button onClick={() => removeList(id)}>Delete List</button>
     </div>
   );
 }

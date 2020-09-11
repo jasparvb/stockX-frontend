@@ -41,6 +41,12 @@ class StockXApi {
         let res = await this.request(`lists`, data, "post");
         return res.list;
     }
+
+    static async removeList(id) {
+        let data = {};
+        let res = await this.request(`lists/${id}`, data, "delete");
+        return res.list;
+    }
     
     static async getLists() {
         let res = await this.request(`lists`);
