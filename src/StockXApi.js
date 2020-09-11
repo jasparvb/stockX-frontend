@@ -43,16 +43,24 @@ class StockXApi {
     }
 
     static async removeList(id) {
-        let data = {};
-        let res = await this.request(`lists/${id}`, data, "delete");
-        return res.list;
+        let res = await this.request(`lists/${id}`, {id}, "delete");
+        return res.message;
     }
     
     static async getLists() {
         let res = await this.request(`lists`);
         return res.lists;
     }
+    
+    static async addStock(data) {
+        let res = await this.request(`stocks`, data, "post");
+        return res.stock;
+    }
 
+    static async removeStock(id) {
+        let res = await this.request(`stocks/${id}`, {id}, "delete");
+        return res.message;
+    }
     static async getUser(username) {
         let res = await this.request(`users/${username}`);
         return res.user;
