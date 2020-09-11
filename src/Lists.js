@@ -29,6 +29,7 @@ function Lists() {
 
   async function removeList(id) {
     await dispatch(removeListAPI(id));
+    setIsLoading(true);
   }
 
   if (isLoading) return <h3><b>Loading...</b></h3>;

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getStockFromAPI } from "./actions/stocks";
 import { getStockQuoteFromAPI } from "./actions/quotes";
+import { getListsAPI } from "./actions/lists";
 import NewsCard from './NewsCard';
 import { Line } from 'react-chartjs-2';
 import './StockDetails.css';
@@ -12,11 +13,15 @@ import './StockDetails.css';
 function StockDetails() {
   const { ticker } = useParams();
   const [range, setRange] = useState('today');
+  const [formVisible, setFormVisible] = useState(false);
+  const token = useSelector(st => st.users);
+  const lists = useSelector(st => st.lists);
   const stock = useSelector(st => st.stocks[ticker]);
   const quote = useSelector(st => st.quotes[ticker]);
   const dispatch = useDispatch();
   const missing = !stock;
   const missingQuote = !quote;
+  const missingLists = !lists.length;
   let chartData = {};
 
   //load stock details from api if not in state
@@ -32,6 +37,14 @@ function StockDetails() {
       dispatch(getStockQuoteFromAPI(ticker, range));
     }
   }, [missingQuote, ticker, dispatch, range]);
+
+  //load user's lists if not in state
+  useEffect(() => {
+    if(missingLists) {
+      dispatch(getListsAPI());
+    }
+  }, [missingLists, dispatch, lists]);
+
 
   if (missing) return "Loading...";
   if(!missingQuote && quote[range]) {
@@ -123,6 +136,11 @@ function StockDetails() {
       <h1 className="mt-3 mb-3">
         {stock.name} <span>({ticker})</span>
       </h1>
+      {token &&
+        <p className="float-right mb-3 mr-5">
+          <button className="btn btn-primary" onClick={() => setFormVisible(true)}>+ Add to List</button>
+        </p>
+      }
       {!missingQuote &&
         <div className="graph">
           <div className="graph-nav">

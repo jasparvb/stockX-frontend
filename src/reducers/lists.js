@@ -1,4 +1,4 @@
-import { ADD_LIST, LOAD_LISTS, REMOVE_LIST } from "../actions/types";
+import { ADD_LIST, LOAD_LISTS, REMOVE_LIST, LOGOUT_USER } from "../actions/types";
 
 /* Reducer for lists */
 
@@ -14,6 +14,9 @@ function lists(state = INITIAL_STATE, action) {
 
     case LOAD_LISTS:
       return action.payload;
+
+    case LOGOUT_USER:
+      return INITIAL_STATE;
 
     default:
       return state;
