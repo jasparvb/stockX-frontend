@@ -4,7 +4,7 @@ import StockXApi from "./StockXApi";
 import AutoCompleteItem from './AutoCompleteItem';
 import './Search.css';
 import debounce from 'lodash/debounce';
-import { useClickOutside } from 'react-click-outside-hook'
+import { useClickOutside } from 'react-click-outside-hook';
 
 function Search() {
     const INITIAL_STATE = {query: ""};

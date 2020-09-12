@@ -26,9 +26,7 @@ function AddListForm() {
   };
 
   return (
-    <div className="AddListForm container text-left col-md-6 offset-md-3 col-lg-4 offset-lg-4 my-3">
-      <h3>Enter a title to create a new list</h3>
-      <p>Once you create a list, you can search for stocks and add them to your list for easy tracking.</p>
+    <div className="AddListForm">
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <input 
