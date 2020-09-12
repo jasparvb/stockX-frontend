@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import stockXLogo from "./stockX-logo.png";
+import stockXLogo from "./images/stockX-logo.png";
 import Search from './Search';
 import './NavBar.css';
 import { logout } from './actions/users';

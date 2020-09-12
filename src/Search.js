@@ -68,7 +68,7 @@ function Search() {
     /** render form */
   
     return (
-        <div ref={ref} className="Search mb-4">
+        <div ref={ref} className="Search">
             <form className="form-inline" autoComplete="off" onSubmit={handleSubmit}>
               <input className="form-control form-control-lg flex-grow-1" 
                   name="query" 
