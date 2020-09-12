@@ -55,7 +55,7 @@ function Lists() {
         <AddListForm />
       </div>
       {lists ? 
-      <div className="list-container">
+      <div className="list-container mt-5">
         {lists.map(l => (
           <List 
             key={l.id} 

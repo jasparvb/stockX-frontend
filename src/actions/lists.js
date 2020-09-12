@@ -7,6 +7,7 @@ import { addAlert } from './alerts';
 function addNewListAPI(name) {
   return async function (dispatch) {
     const list = await StockXApi.addList(name);
+    list.stocks = [];
     dispatch(addedList(list));
   };
 }
