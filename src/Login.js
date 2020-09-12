@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 import './Login.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { register, login } from './actions/users';
-import { addAlert } from './actions/alerts';
 
 function Login() {
   const [activeTab, setActiveTab] = useState('login');

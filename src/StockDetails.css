@@ -52,3 +52,15 @@
   outline: none;
 }
 
+.StockDetails .price {
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+.StockDetails .price-change {
+  color: rgb(0 200 5);
+}
+
+.StockDetails .price-change.down {
+  color: rgb(255 80 0);
+}

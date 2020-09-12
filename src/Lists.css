@@ -3,3 +3,7 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+
+.Lists .row {
+  background: whitesmoke;
+}

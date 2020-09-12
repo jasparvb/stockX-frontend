@@ -49,10 +49,12 @@ function Lists() {
   }
   return (
     <div className="Lists container-fluid">
-      <div className="container text-left col-md-6 offset-md-3 col-lg-4 offset-lg-4 my-3">
+      <div className="row p-3">
+      <div className="text-left col-md-6 offset-md-3 col-lg-4 offset-lg-4 my-3">
         <h3>Enter a title to create a new list</h3>
         <p>Once you create a list, you can search for stocks and add them to your list for easy tracking.</p>
         <AddListForm />
+      </div>
       </div>
       {lists ? 
       <div className="list-container mt-5">
