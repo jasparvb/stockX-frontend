@@ -45,6 +45,7 @@ function addNewStockAPI(ticker, name, listId) {
     const stock = await StockXApi.addStock({ticker, name, listId});
     //dispatch(addedStock(stock));
     getListsAPI();
+    dispatch(addAlert("Added stock to list", "success"));
   };
 }
 

@@ -16,8 +16,9 @@ function AddStockForm({ticker, name, setFormVisible, lists}) {
     }
   },[hasClickedOutside]);
 
-  async function addStock(listId) {
-    await dispatch(addNewStockAPI(ticker, name, listId));
+  function addStock(listId) {
+    dispatch(addNewStockAPI(ticker, name, listId));
+    setFormVisible(false);
   }
 
   return (

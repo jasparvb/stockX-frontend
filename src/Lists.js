@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { addAlert } from './actions/alerts';
 import { getListsAPI } from './actions/lists';
-import { removeListAPI } from './actions/lists';
+import { removeListAPI, removeStockAPI } from './actions/lists';
 import AddListForm from './AddListForm';
 import List from './List';
 
@@ -32,6 +32,11 @@ function Lists() {
     setIsLoading(true);
   }
 
+  async function removeStock(id, listId) {
+    await dispatch(removeStockAPI(id, listId));
+    setIsLoading(true);
+  }
+
   if (isLoading) return <h3><b>Loading...</b></h3>;
   
   if (!isLoading && !lists) return <h1>You don't have any posts yet</h1>;
@@ -52,7 +57,14 @@ function Lists() {
       {lists ? 
       <div className="list-container">
         {lists.map(l => (
-          <List key={l.id} id={l.id} name={l.name} stocks={l.stocks} removeList={removeList} />
+          <List 
+            key={l.id} 
+            id={l.id} 
+            name={l.name} 
+            stocks={l.stocks} 
+            removeList={removeList} 
+            removeStock={removeStock}
+          />
         ))}
       </div>
       : <div className="text-center my-5">

@@ -37,7 +37,7 @@ function AddListForm() {
             onChange={handleChange}
           />
         </div>
-        <button type="submit" className="btn btn-primary mt-1">Add</button>
+        <button type="submit" className="btn btn-primary">Add</button>
       </form>
     </div>
   );
