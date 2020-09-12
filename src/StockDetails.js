@@ -132,7 +132,7 @@ function StockDetails() {
       <hr/>
       <p className="mb-5">{stock.description}</p>
       {stock.articles[0] &&
-        <div className="articles">
+        <div className="articles mb-5">
           <h3>Related News</h3>
           <hr/>
           {stock.articles.map((s, i) => (

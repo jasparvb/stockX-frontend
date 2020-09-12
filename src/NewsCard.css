@@ -7,6 +7,10 @@
   transition: background 150ms;
 }
 
+.NewsCard:hover {
+  background: rgb(0 200 5 / 5%);
+}
+
 .NewsCard .box {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -40,4 +44,8 @@
   -o-object-fit: cover;
   object-fit: cover;
   width: 100%;
+}
+
+a.news:hover {
+  text-decoration: none;
 }
