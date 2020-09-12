@@ -5,9 +5,9 @@ import './List.css';
 function List({id, name, stocks, removeList, removeStock}) {
 
   return (
-    <div className="List col-md-4 mb-4">
+    <div className="List col-md-4 col-lg-4 mb-4">
       <div className="list-box">
-        <h3>{name}</h3>
+        <h3 className="mb-4">{name}</h3>
         {stocks.length ? 
           stocks.map(s => (
             <ListItem 
@@ -15,6 +15,7 @@ function List({id, name, stocks, removeList, removeStock}) {
               id={s.id} 
               ticker={s.ticker} 
               name={s.name} 
+              quote={s.quote}
               listId={id} 
               removeStock={removeStock} 
             />

@@ -121,7 +121,6 @@ function StockDetails() {
         <div className="graph">
           <div className="graph-nav">
             <button className={range === "today" ? "active" : ""} onClick={() => setRange("today")}>1D</button>
-            <button className={range === "1w" ? "active" : ""} onClick={() => setRange("1w")}>1W</button>
             <button className={range === "1m" ? "active" : ""} onClick={() => setRange("1m")}>1M</button>
             <button className={range === "3m" ? "active" : ""} onClick={() => setRange("3m")}>3M</button>
             <button className={range === "1y" ? "active" : ""} onClick={() => setRange("1y")}>1Y</button>

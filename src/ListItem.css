@@ -1,4 +1,38 @@
 .ListItem {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+
+.ListItem a {
+  color: black;
+}
+
+.ListItem a:hover {
+  color: rgb(0 200 5);
+  text-decoration: none;
+}
+
+.ListItem button:hover {
+  color: rgb(0 200 5);
+  text-decoration: none;
+}
+
+.ListItem .percent-change {
+  color: rgb(0 200 5);
+}
+
+.ListItem .percent-change.down {
+  color: rgb(255 80 0);
+}
+
+.ListItem button.btn.remove {
+  border: 1px solid #ced4da;
+  padding: 5px;
+  height: 35px;
+  width: 35px;
+  margin: 8px 0;
+}
+
+.ListItem button.btn.remove:hover {
+  border: 1px solid rgb(0 200 5);
 }
