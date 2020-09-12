@@ -7,6 +7,12 @@
   border: 1px solid rgb(0 200 5);
 }
 
+.App .btn-outline-primary {
+  background: white;
+  border: 1px solid #ced4da;
+  color: black;
+}
+
 .App button.btn-primary:focus,
 .App button.btn-primary:active {
   outline: none;
@@ -14,8 +20,23 @@
   background: rgb(0 200 5) !important;
   border: 1px solid rgb(0 200 5) !important;
 }
+
+.App button.btn-outline-primary:focus,
+.App button.btn-outline-primary:active {
+  outline: none;
+  box-shadow: none !important;
+  background: white !important;
+  border: 1px solid #ced4da !important;
+  color: black;
+}
+
 .App button.btn-primary:hover {
   background: rgb(0 200 5 / 70%);
   border: 1px solid rgb(0 200 5 / 70%);
 }
 
+.App button.btn-outline-primary:hover {
+  background: white;
+  border: 1px solid rgb(0 200 5);
+  color: rgb(0 200 5);
+}

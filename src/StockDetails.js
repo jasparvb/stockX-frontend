@@ -134,7 +134,14 @@ function StockDetails() {
 
   return (
     <div className="StockDetails">
-      {formVisible && <AddStockForm ticker={ticker} name={stock.name} setFormVisible={setFormVisible} />}
+      {formVisible && 
+        <AddStockForm 
+          ticker={ticker} 
+          name={stock.name} 
+          setFormVisible={setFormVisible} 
+          lists={lists}
+        />
+      }
       <h1 className="mt-3 mb-3">
         {stock.name} <span>({ticker})</span>
       </h1>

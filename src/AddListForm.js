@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from 'react-redux';
-import { addAlert } from './actions/alerts';
+import { useDispatch } from 'react-redux';
 import { addNewListAPI } from './actions/lists';
 
 function AddListForm() {

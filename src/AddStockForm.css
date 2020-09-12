@@ -1,28 +1,36 @@
 .AddStockForm .overlay {
-  position: absolute;
+  position: fixed;
   background: rgb(0 0 0 / 0.3);
   top: 0;
-  bottom: 0;
   left: 0;
-  right: 0;
+  height: 100%;
+  width: 100%;
   z-index: 10;
 }
 
 .AddStockForm .form-container {
   position: fixed;
   z-index: 12;
-  top: 50%;
+  top: 30%;
   left: 50%;
   margin-top: -100px;
-  margin-left: -150px;
+  margin-left: -226px;
 }
 
 .AddStockForm .form-container .form-column {
   box-shadow: 0px 1px 10px 0px #6b6b6b;
-  max-width: 450px;
+  min-width: 450px;
   border: 1px solid #ced4da;
   border-radius: 3px;
   background: white;
   padding: 20px;
+}
+
+.AddStockForm .btn-outline-primary {
+  display: block;
+  text-align: center;
+  margin: 20px auto;
+  padding: 7px 30px;
+  height: 40px;
 }
 
