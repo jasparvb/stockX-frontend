@@ -9,6 +9,7 @@ function login(data) {
     try {
       const user = await StockXApi.login(data);
       dispatch(userLoggedIn(user));
+      dispatch(addAlert(`Welcome ${data.username}!`, "success"));
     } catch(err) {
       err.forEach(e => {
         dispatch(addAlert(e, "danger"));
@@ -26,6 +27,7 @@ function register(data) {
     try {
       const user = await StockXApi.register(data);
       dispatch(userRegistered(user));
+      dispatch(addAlert(`Welcome ${data.username}!`, "success"));
     } catch(err) {
       err.forEach(e => {
         dispatch(addAlert(e, "danger"));

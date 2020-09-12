@@ -4,7 +4,7 @@
 
 .App .btn-primary {
   background: rgb(0 200 5);
-  border: 1px solid rgb(0 200 5);
+  border: none;
 }
 
 .App .btn-outline-primary {
@@ -18,7 +18,7 @@
   outline: none;
   box-shadow: none !important;
   background: rgb(0 200 5) !important;
-  border: 1px solid rgb(0 200 5) !important;
+  border: none !important;
 }
 
 .App button.btn-outline-primary:focus,
@@ -30,9 +30,9 @@
   color: black;
 }
 
-.App button.btn-primary:hover {
+.App .btn-primary:hover {
   background: rgb(0 200 5 / 70%);
-  border: 1px solid rgb(0 200 5 / 70%);
+  border: none;
 }
 
 .App button.btn-outline-primary:hover {

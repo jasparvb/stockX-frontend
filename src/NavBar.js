@@ -29,18 +29,15 @@ function Navbar() {
     <Search />
     {user ?
       <ul className="navbar-nav flex-row">
-        <li className="nav-item">
-        <Link to="/lists" className="nav-link text-dark">Lists</Link>
+        <li className="nav-item px-3">
+        <Link to="/lists" className="nav-link">Watchlists</Link>
         </li>
-        <li className="nav-item">
-        <Link to="#" onClick={logoutUser} className="nav-link text-dark">Logout</Link>
+        <li className="nav-item px-3">
+        <Link to="#" onClick={logoutUser} className="nav-link">Logout</Link>
         </li>
       </ul>
       :
       <ul className="navbar-nav flex-row">
-        <li className="nav-item">
-        <Link to="/login" className="nav-link text-dark">Log In or Register</Link>
-        </li>
       </ul>
     }
     </nav>

@@ -30,7 +30,6 @@ function Login() {
     async function checkLogin() {
       if (token) {
         localStorage.setItem('stockx-token', token);
-        dispatch(addAlert(`Welcome ${loginData.username}!`, "success"));
         setLoginData(INITIAL_STATE);
         history.push('/');
       }

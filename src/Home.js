@@ -7,8 +7,11 @@ function Home() {
   return (
     <section className="Home col-md-12 p-0">
       <div className="banner container-fluid text-center text-light m-0 p-5" style={{ backgroundImage: `url(${BannerBg})`}} >
-        <h1 className="mt-5 mb-4 font-weight-bold">StockX</h1>
-        <p className="lead">Start tracking your financial data today</p>
+        <div className="content-wrapper mb-5">
+          <h1 className="mb-3 font-weight-bold">StockX</h1>
+          <p className="lead">Start tracking your financial data today</p>
+          <Link to="/login" className="btn btn-primary btn-lg px-5 py-3 my-5">Log In or Register</Link>
+        </div>
       </div>
     </section>
   );

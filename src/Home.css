@@ -1,9 +1,12 @@
 .Home .banner {
   background-repeat: no-repeat;
-  height: 550px;
+  height: calc(100vh - 80px);
   background-position: center;
   background-size: cover;
   background-position-y: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .Home h1 {
