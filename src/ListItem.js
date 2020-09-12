@@ -21,7 +21,7 @@ function ListItem({id, ticker, name, quote, listId, removeStock}) {
         <p className={`percent-change ${quote.change < 0 && "down"}`}>{quote.change >= 0 && "+"}{(quote.changePercent * 100).toFixed(2)}%</p>
       </div>
       <button className="btn remove" onClick={() => removeStock(id, listId)}>
-        <i class="fas fa-times" />
+        <i className="fas fa-times" />
       </button>
     </div>
   );
