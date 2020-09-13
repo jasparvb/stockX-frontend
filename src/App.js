@@ -27,7 +27,7 @@ function App() {
       setInfoLoaded(true);
     }
     checkUser();
-  }, [user]);
+  }, [user, dispatch]);
 
   if (!infoLoaded) {
     return <h3>Loading...</h3>;

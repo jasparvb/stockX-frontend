@@ -25,7 +25,7 @@ function Lists() {
       getLists();
     }
     
-  }, [isLoading, lists]);
+  }, [isLoading, lists, dispatch]);
 
   async function removeList(id) {
     await dispatch(removeListAPI(id));

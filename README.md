@@ -1,11 +1,12 @@
-# <img src="https://raw.githubusercontent.com/jasparvb/stockX-frontend/master/src/stockX-logo.png" alt="StockX logo" width="150px" height="auto">  
+# <img src="https://raw.githubusercontent.com/jasparvb/stockX-frontend/master/src/images/stockX-logo.png" alt="StockX logo" width="150px" height="auto">  
 The purpose of stockX is to make it easy to look up and follow your favorite equities.
 
 
 ## Data
 The site gets all it's financial data from two APIs:
 1. [IEX Cloud](https://iexcloud.io/). The free version of their API allows you to access stock news and quotes.
-2. [Tiingo](https://api.tiingo.com/). Used to get stock details and current prices.
+2. [Tiingo](https://api.tiingo.com/). Used to get stock details and current prices.  
+
 In order to display the data in a graph, the site uses the javascript library Chart.js.
 
 ## Features

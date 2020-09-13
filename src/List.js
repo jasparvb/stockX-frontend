@@ -11,7 +11,7 @@ function List({id, name, stocks, removeList, removeStock}) {
         {stocks.length ? 
           stocks.map(s => (
             <ListItem 
-              key={s.ticker} 
+              key={s.id} 
               id={s.id} 
               ticker={s.ticker} 
               name={s.name} 

@@ -1,4 +1,4 @@
-import { ADD_LIST, LOAD_LISTS, REMOVE_LIST, ADD_STOCK, REMOVE_STOCK } from "./types";
+import { ADD_LIST, LOAD_LISTS, REMOVE_LIST } from "./types";
 import StockXApi from "../StockXApi";
 import { addAlert } from './alerts';
 
@@ -47,17 +47,17 @@ function removedList(id) {
 
 function addNewStockAPI(ticker, name, listId) {
   return async function (dispatch) {
-    const stock = await StockXApi.addStock({ticker, name, listId});
+    await StockXApi.addStock({ticker, name, listId});
     //dispatch(addedStock(stock));
     getListsAPI();
     dispatch(addAlert("Added stock to list", "success"));
   };
 }
-
+/*
 function addedStock(stock) {
   return { type: ADD_STOCK, payload: stock };
 }
-
+*/
 
 function removeStockAPI(id, listId) {
   return async function (dispatch) {
@@ -67,10 +67,10 @@ function removeStockAPI(id, listId) {
     getListsAPI();
   };
 }
-
+/*
 function removedStock(id, listId) {
   return { type: REMOVE_STOCK, payload: {id, listId} };
 }
-
+*/
 
 export { addNewListAPI, getListsAPI, removeListAPI, removeStockAPI, addNewStockAPI };

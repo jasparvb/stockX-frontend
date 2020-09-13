@@ -3,12 +3,6 @@ import './ListItem.css';
 import { Link } from "react-router-dom";
 
 function ListItem({id, ticker, name, quote, listId, removeStock}) {
-  let percent = "";
-
-  if(quote.change < 0) {
-    percent = "-$" + quote.close;
-  }
-
   return (
     <div className="ListItem px-5">
       <Link to={`/${ticker}`} className="text-left col-md-5">

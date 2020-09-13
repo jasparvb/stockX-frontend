@@ -28,7 +28,7 @@ function Account() {
       dispatch(addAlert(`You must be logged in to view that page!`, "danger"));
       history.push('/login');
     }
-  },[]);
+  });
 
   async function handleSubmit(evt) {
     evt.preventDefault();

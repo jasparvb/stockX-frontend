@@ -14,7 +14,7 @@ function AddStockForm({ticker, name, setFormVisible, lists}) {
     if(hasClickedOutside) {
       setFormVisible(false);
     }
-  },[hasClickedOutside]);
+  });
 
   function addStock(listId) {
     dispatch(addNewStockAPI(ticker, name, listId));
