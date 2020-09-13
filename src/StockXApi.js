@@ -2,8 +2,8 @@
 
 import axios from "axios";
 
-const BASE_URL = process.env.BASE_URL || "http://localhost:3001";
-//const BASE_URL = process.env.BASE_URL || "https://stockx-backend.herokuapp.com";
+//const BASE_URL = process.env.BASE_URL || "http://localhost:3001";
+const BASE_URL = process.env.BASE_URL || "https://stockx-backend.herokuapp.com";
 
 class StockXApi {
     static async request(endpoint, paramsOrData = {}, verb = "get") {
