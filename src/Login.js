@@ -93,6 +93,7 @@ function Login() {
       </div>
       <div className="card">
         <div className="card-body">
+          <h3 className="my-4">Log in or create a new account</h3>
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label>Username</label>
