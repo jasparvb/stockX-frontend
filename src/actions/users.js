@@ -8,8 +8,8 @@ function login(data) {
   return async function (dispatch) {
     try {
       const user = await StockXApi.login(data);
-      dispatch(userLoggedIn(user));
-      dispatch(addAlert(`Welcome ${data.username}!`, "success"));
+      await dispatch(userLoggedIn(user));
+      await dispatch(addAlert(`Welcome ${data.username}!`, "success"));
     } catch(err) {
       err.forEach(e => {
         dispatch(addAlert(e, "danger"));
@@ -36,6 +36,19 @@ function register(data) {
   };
 }
 
+function logoutUser() {
+  return async function (dispatch) {
+    try {
+      dispatch(userRegistered(user));
+      dispatch(addAlert(`Welcome ${data.username}!`, "success"));
+    } catch(err) {
+      err.forEach(e => {
+        dispatch(addAlert(e, "danger"));
+      });
+    }
+  };
+}
+
 function userRegistered(user) {
   return { type: REGISTER_USER, payload: user };
 }
@@ -44,8 +57,8 @@ function logout() {
   return { type: LOGOUT_USER};
 }
 
-function loadUser(user) {
-  return { type: LOGIN_USER, payload: user };
+function loadUser(token, username, email) {
+  return { type: LOGIN_USER, payload: {token, username, email} };
 }
 
 

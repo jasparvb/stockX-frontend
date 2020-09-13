@@ -7,15 +7,27 @@ import Routes from './Routes';
 import { loadUser } from './actions/users';
 
 function App() {
-  const initialValue = localStorage.getItem('stockx-token') || null;
   const [infoLoaded, setInfoLoaded] = useState(false);
-  const token = useSelector(st => st.users);
+  const user = useSelector(st => st.users);
   const dispatch = useDispatch();
-
+  
   useEffect(() => {
-    dispatch(loadUser(initialValue));
-    setInfoLoaded(true);
-  }, [token]);
+    async function checkUser() {
+      const initialValue = localStorage.getItem('stockx-token') || null;
+      
+      if(user.token) {
+        localStorage.setItem('stockx-token', user.token);
+        localStorage.setItem('stockx-username', user.username);
+        localStorage.setItem('stockx-email', user.email);
+      } else if(initialValue) {
+        const username = localStorage.getItem('stockx-username')
+        const email = localStorage.getItem('stockx-email')
+        await dispatch(loadUser(initialValue, username, email));
+      }
+      setInfoLoaded(true);
+    }
+    checkUser();
+  }, [user]);
 
   if (!infoLoaded) {
     return <h3>Loading...</h3>;

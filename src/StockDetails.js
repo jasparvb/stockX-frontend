@@ -52,7 +52,7 @@ function StockDetails() {
     if (missingQuote || !quote[range]) {
       dispatch(getStockQuoteFromAPI(ticker, range));
     }
-  }, [missingQuote, ticker, dispatch, range]);
+  }, [missingQuote, ticker, dispatch, range, quote]);
 
   //load user's lists if not in state
   useEffect(() => {

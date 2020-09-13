@@ -7,6 +7,7 @@ const INITIAL_STATE = {};
 function users(state = INITIAL_STATE, action) {
   switch (action.type) {
     case LOGIN_USER:
+      debugger;
       return action.payload;
 
     case REGISTER_USER:

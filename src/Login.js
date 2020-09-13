@@ -16,7 +16,7 @@ function Login() {
   const [loginData, setLoginData] = useState(INITIAL_STATE);
   const history = useHistory();
   const dispatch = useDispatch();
-  const token = useSelector(st => st.users);
+  const user = useSelector(st => st.users);
   
   function setLogin() {
     setActiveTab('login');
@@ -27,14 +27,12 @@ function Login() {
   //bounces logged in users to home page if already logged in
   useEffect(() => {
     async function checkLogin() {
-      if (token) {
-        localStorage.setItem('stockx-token', token);
-        setLoginData(INITIAL_STATE);
+      if (user.token) {
         history.push('/');
       }
     }
     checkLogin();
-  },[token])
+  });
 
   async function handleSubmit(evt) {
     evt.preventDefault();
@@ -58,7 +56,13 @@ function Login() {
 
     try {
       //login or register user
-      endpoint === "login" ? await dispatch(login(data)) : await dispatch(register(data));
+      if(endpoint === "login") {
+        await dispatch(login(data))
+      } else {
+        await dispatch(register(data));
+      }
+      setLoginData(INITIAL_STATE);
+      history.push('/');
     } catch (errors) {
       return setLoginData(data => ({ ...data, errors }));
     }

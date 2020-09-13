@@ -4,6 +4,7 @@ import Home from "./Home";
 import Login from "./Login";
 import Lists from "./Lists";
 import StockDetails from "./StockDetails";
+import Account from "./Account";
 
 function Routes() {
     return (
@@ -16,6 +17,9 @@ function Routes() {
             </Route>
             <Route path="/lists" exact>
                 <Lists />
+            </Route>
+            <Route path="/account" exact>
+                <Account />
             </Route>
             <Route path="/:ticker" exact>
                 <StockDetails />

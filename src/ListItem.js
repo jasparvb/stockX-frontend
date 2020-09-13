@@ -3,8 +3,7 @@ import './ListItem.css';
 import { Link } from "react-router-dom";
 
 function ListItem({id, ticker, name, quote, listId, removeStock}) {
-  let price;
-  let percent;
+  let percent = "";
 
   if(quote.change < 0) {
     percent = "-$" + quote.close;
