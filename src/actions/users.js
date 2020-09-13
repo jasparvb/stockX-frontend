@@ -1,4 +1,4 @@
-import { LOGIN_USER, REGISTER_USER, LOGOUT_USER } from "./types";
+import { LOGIN_USER, REGISTER_USER, LOGOUT_USER, UPDATE_USER } from "./types";
 import StockXApi from "../StockXApi";
 import { addAlert } from './alerts';
 
@@ -36,17 +36,23 @@ function register(data) {
   };
 }
 
-function logoutUser() {
+function updateUserApi(username, data) {
   return async function (dispatch) {
     try {
-      dispatch(userRegistered(user));
-      dispatch(addAlert(`Welcome ${data.username}!`, "success"));
+      debugger;
+      const user = await StockXApi.updateUser(username, data);
+      dispatch(userUpdated(user));
+      dispatch(addAlert(`User info update!`, "success"));
     } catch(err) {
       err.forEach(e => {
         dispatch(addAlert(e, "danger"));
       });
     }
   };
+}
+
+function userUpdated(user) {
+  return { type: UPDATE_USER, payload: user };
 }
 
 function userRegistered(user) {
@@ -62,4 +68,4 @@ function loadUser(token, username, email) {
 }
 
 
-export { login, register, logout, loadUser };
+export { login, register, logout, loadUser, updateUserApi };
