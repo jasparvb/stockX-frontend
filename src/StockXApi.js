@@ -71,8 +71,8 @@ class StockXApi {
         return res.user;
     }
     
-    static async deleteUser(username) {
-        let res = await this.request(`users/${username}`, {username}, "delete");
+    static async deleteUser(username, token) {
+        let res = await this.request(`users/${username}`, {_token: token}, "delete");
         return res.message;
     }
 

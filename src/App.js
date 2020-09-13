@@ -20,8 +20,8 @@ function App() {
         localStorage.setItem('stockx-username', user.username);
         localStorage.setItem('stockx-email', user.email);
       } else if(initialValue) {
-        const username = localStorage.getItem('stockx-username')
-        const email = localStorage.getItem('stockx-email')
+        const username = localStorage.getItem('stockx-username');
+        const email = localStorage.getItem('stockx-email');
         await dispatch(loadUser(initialValue, username, email));
       }
       setInfoLoaded(true);

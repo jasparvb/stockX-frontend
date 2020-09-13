@@ -43,10 +43,10 @@ function Account() {
   };
 
   async function deleteUser() {
-    await dispatch(deleteUserApi(user.username));
     localStorage.removeItem('stockx-token');
     localStorage.removeItem('stockx-username');
     localStorage.removeItem('stockx-email');
+    await dispatch(deleteUserApi(user.username, user.token));
     history.push('/');
   };
 

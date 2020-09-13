@@ -6,15 +6,9 @@ import { addAlert } from './alerts';
 
 function login(data) {
   return async function (dispatch) {
-    try {
-      const user = await StockXApi.login(data);
-      await dispatch(userLoggedIn(user));
-      await dispatch(addAlert(`Welcome ${data.username}!`, "success"));
-    } catch(err) {
-      err.forEach(e => {
-        dispatch(addAlert(e, "danger"));
-      });
-    }
+    const user = await StockXApi.login(data);
+    await dispatch(userLoggedIn(user));
+    await dispatch(addAlert(`Welcome ${data.username}!`, "success"));
   };
 }
 
@@ -24,15 +18,9 @@ function userLoggedIn(user) {
 
 function register(data) {
   return async function (dispatch) {
-    try {
-      const user = await StockXApi.register(data);
-      dispatch(userRegistered(user));
-      dispatch(addAlert(`Welcome ${data.username}!`, "success"));
-    } catch(err) {
-      err.forEach(e => {
-        dispatch(addAlert(e, "danger"));
-      });
-    }
+    const user = await StockXApi.register(data);
+    dispatch(userRegistered(user));
+    dispatch(addAlert(`Welcome ${data.username}!`, "success"));
   };
 }
 
@@ -50,11 +38,11 @@ function updateUserApi(username, data) {
   };
 }
 
-function deleteUserApi(username) {
+function deleteUserApi(username, token) {
   return async function (dispatch) {
     try {
-      const message = await StockXApi.deleteUser(username);
-      dispatch(logout());
+      const message = await StockXApi.deleteUser(username, token);
+      await dispatch(logout());
       dispatch(addAlert(message, "success"));
     } catch(err) {
       err.forEach(e => {
