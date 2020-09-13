@@ -1,6 +1,8 @@
 import React from "react";
 import './NewsCard.css';
 
+//Displays a news item
+
 function NewsCard({headline, image, url, source}) {
   return (
     <a href={url} target="_blank" rel="noopener noreferrer" className="news text-dark">

@@ -8,6 +8,8 @@ import { removeListAPI, removeStockAPI } from './actions/lists';
 import AddListForm from './AddListForm';
 import List from './List';
 
+//Displays page for user watchlists
+
 function Lists() {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -15,6 +17,7 @@ function Lists() {
   const lists = useSelector(st => st.lists);
   const [isLoading, setIsLoading] = useState(true);
 
+  //Loads user's lists
   useEffect(() => {
     async function getLists() {
       await dispatch(getListsAPI());
@@ -27,11 +30,13 @@ function Lists() {
     
   }, [isLoading, lists, dispatch]);
 
+  //Deletes a watchlist
   async function removeList(id) {
     await dispatch(removeListAPI(id));
     setIsLoading(true);
   }
 
+  //Deletes a stock from a watchlist
   async function removeStock(id, listId) {
     await dispatch(removeStockAPI(id, listId));
     setIsLoading(true);

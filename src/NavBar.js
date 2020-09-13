@@ -5,6 +5,8 @@ import stockXLogo from "./images/stockX-logo.png";
 import Search from './Search';
 import './NavBar.css';
 
+//Top navigation
+
 function Navbar() {
 
   const user = useSelector(st => st.users);
@@ -26,6 +28,12 @@ function Navbar() {
       </ul>
       :
       <ul className="navbar-nav flex-row">
+        <li className="nav-item px-3">
+          <Link to="/login" className="nav-link">Log In</Link>
+        </li>
+        <li className="nav-item px-3">
+          <Link to="/login" className="btn btn-primary btn-md mr-4 mt-0">Sign Up</Link>
+        </li>
       </ul>
     }
     </nav>

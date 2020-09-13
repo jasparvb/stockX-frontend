@@ -9,8 +9,9 @@ import AddStockForm from './AddStockForm';
 import { Line } from 'react-chartjs-2';
 import './StockDetails.css';
 import chartOptions from './ChartOptions';
+import { useHistory } from "react-router-dom";
 
-// Display a stock
+// Display a stock with chart, news, description
 
 function StockDetails() {
   const { ticker } = useParams();
@@ -22,6 +23,7 @@ function StockDetails() {
   const stock = useSelector(st => st.stocks[ticker]);
   const quote = useSelector(st => st.quotes[ticker]);
   const dispatch = useDispatch();
+  const history = useHistory();
   const missing = !stock;
   const missingQuote = !quote;
   const missingLists = !lists.length;
@@ -30,7 +32,12 @@ function StockDetails() {
   //load stock details from api if not in state
   useEffect(function() {
     async function getStock() {
-      await dispatch(getStockFromAPI(ticker));
+      try {
+        await dispatch(getStockFromAPI(ticker));
+      } catch(e) {
+        //redirect to home page if ticker does not exist
+        history.push('/');
+      }
     }
     if (missing) {
       getStock();
@@ -54,14 +61,14 @@ function StockDetails() {
     }
   }, [missingQuote, ticker, dispatch, range, quote]);
 
-  //load user's lists if not in state
+  //load user's lists if not in state and user is logged in
   useEffect(() => {
-    if(missingLists) {
+    if(missingLists && user.token) {
       dispatch(getListsAPI());
     }
   }, [missingLists, dispatch, lists]);
 
-
+  //Placeholder until data is loaded
   if (missing) return "Loading...";
 
   //Set chart data, labels and color

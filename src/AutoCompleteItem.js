@@ -1,6 +1,8 @@
 import React from "react";
 import './AutoCompleteItem.css';
 
+//Element displayed in search auto-suggest dropdown
+
 function AutoCompleteItem({id, ticker, name, assetType, countryCode, selected, setSelected}) {
     return (
       <div 

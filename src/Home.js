@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import BannerBg from './images/stockX-bg.jpg';
 import './Home.css';
 
+//Home page banner
+
 function Home() {
   return (
     <section className="Home col-md-12 p-0">

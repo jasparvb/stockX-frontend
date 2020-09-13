@@ -14,7 +14,10 @@
 }
 
 .App button.btn-primary:focus,
-.App button.btn-primary:active {
+.App button.btn-primary:active,
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:focus {
   outline: none;
   box-shadow: none !important;
   background: rgb(0 200 5) !important;

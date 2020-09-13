@@ -5,17 +5,20 @@ import './AddStockForm.css';
 import { useClickOutside } from 'react-click-outside-hook';
 import AddListForm from './AddListForm';
 
+//Form to add a stock to a list
+
 function AddStockForm({ticker, name, setFormVisible, lists}) {
   const dispatch = useDispatch();
 
   const [ref, hasClickedOutside] = useClickOutside();
 
+  //Close the popup form if user clicks outside
   useEffect(() => {
     if(hasClickedOutside) {
       setFormVisible(false);
     }
   });
-
+  
   function addStock(listId) {
     dispatch(addNewStockAPI(ticker, name, listId));
     setFormVisible(false);

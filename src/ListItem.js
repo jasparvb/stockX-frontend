@@ -2,6 +2,8 @@ import React from "react";
 import './ListItem.css';
 import { Link } from "react-router-dom";
 
+//Ticker details in a list
+
 function ListItem({id, ticker, name, quote, listId, removeStock}) {
   return (
     <div className="ListItem px-5">

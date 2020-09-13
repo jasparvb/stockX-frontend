@@ -6,6 +6,8 @@ import './Search.css';
 import debounce from 'lodash/debounce';
 import { useClickOutside } from 'react-click-outside-hook';
 
+//Search bar that appears in the top nav
+
 function Search() {
     const INITIAL_STATE = {query: ""};
     const INITIAL_AUTO_STATE = [];

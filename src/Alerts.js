@@ -2,8 +2,10 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeAlerts } from './actions/alerts';
 import Alert from 'react-bootstrap/Alert';
-import { v4 as uuid } from 'uuid';  //used to create unqiue keys for rendered components
+import { v4 as uuid } from 'uuid';
 import './Alerts.css';
+
+//Alerts that appear at top of the screen
 
 function Alerts() {
   const dispatch = useDispatch();

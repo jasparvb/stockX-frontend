@@ -1,5 +1,7 @@
 import { ADD_ALERT, REMOVE_ALERTS } from "../actions/types";
 
+/* Reducer for alert messages */
+
 const INITIAL_STATE = [];
 
 function alerts(state = INITIAL_STATE, action) {

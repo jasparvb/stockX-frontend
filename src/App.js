@@ -11,6 +11,8 @@ function App() {
   const user = useSelector(st => st.users);
   const dispatch = useDispatch();
   
+  /*Check if user is logged in, load token from localstorage 
+    and save in state if available */
   useEffect(() => {
     async function checkUser() {
       const initialValue = localStorage.getItem('stockx-token') || null;

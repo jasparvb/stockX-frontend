@@ -1,7 +1,7 @@
 import { LOAD_STOCK } from "./types";
 import StockXApi from "../StockXApi";
 
-/* Action to load a stock given ticker */
+/* Action to load a stock given a ticker */
 
 function getStockFromAPI(ticker) {
   return async function (dispatch) {

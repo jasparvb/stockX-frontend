@@ -1,9 +1,10 @@
 # <img src="https://raw.githubusercontent.com/jasparvb/stockX-frontend/master/src/images/stockX-logo.png" alt="StockX logo" width="150px" height="auto">  
-The purpose of stockX is to make it easy to look up and follow your favorite equities.
-
+The purpose of stockX is to make it easy to look up and follow your favorite equities by creating watchlists and adding stocks to them.  
+The site is [deployed here](https://objective-kare-05df21.netlify.app/).
+The backend can be [found here on GitHub](https://github.com/jasparvb/stockX-backend).
 
 ## Data
-The site gets all it's financial data from two APIs:
+The site gets all it's financial data by combining two APIs:
 1. [IEX Cloud](https://iexcloud.io/). The free version of their API allows you to access stock news and quotes.
 2. [Tiingo](https://api.tiingo.com/). Used to get stock details and current prices.  
 

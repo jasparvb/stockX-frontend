@@ -5,19 +5,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import { register, login } from './actions/users';
 import { addAlert } from './actions/alerts';
 
+//Handles user login and registration
+
 function Login() {
   const [activeTab, setActiveTab] = useState('login');
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const user = useSelector(st => st.users);
   const INITIAL_STATE = { 
     username: "",
     password: "",
     email: "",
     errors: [] 
   };
-
   const [loginData, setLoginData] = useState(INITIAL_STATE);
-  const history = useHistory();
-  const dispatch = useDispatch();
-  const user = useSelector(st => st.users);
   
   function setLogin() {
     setActiveTab('login');

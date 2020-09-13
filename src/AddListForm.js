@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
 import { addNewListAPI } from './actions/lists';
 
+//Form to create a new list
+
 function AddListForm() {
   const dispatch = useDispatch();
 

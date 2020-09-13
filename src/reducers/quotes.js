@@ -1,6 +1,6 @@
 import { LOAD_QUOTE } from "../actions/types";
 
-/* Reducer for quotes */
+/* Reducer for stock quotes */
 
 const INITIAL_STATE = {};
 

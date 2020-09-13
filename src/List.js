@@ -2,6 +2,8 @@ import React from "react";
 import ListItem from './ListItem';
 import './List.css';
 
+//List that displays individual tickers
+
 function List({id, name, stocks, removeList, removeStock}) {
 
   return (

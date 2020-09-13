@@ -9,6 +9,12 @@
   align-items: center;
 }
 
+.Home .content-wrapper {
+  background: rgb(0 0 0 / 70%);
+  padding: 12px 50px 20px;
+  border-radius: 4px;
+}
+
 .Home h1 {
   font-size: 8rem;
   text-shadow: 0px 0px 2px black;
