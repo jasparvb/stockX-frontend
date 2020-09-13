@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import './Account.css';
-import { Link } from "react-router-dom";
 import { logout } from './actions/users';
 import { addAlert } from './actions/alerts';
-import { updateUserApi } from './actions/users';
+import { updateUserApi, deleteUserApi } from './actions/users';
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -43,6 +42,14 @@ function Account() {
     }
   };
 
+  async function deleteUser() {
+    await dispatch(deleteUserApi(user.username));
+    localStorage.removeItem('stockx-token');
+    localStorage.removeItem('stockx-username');
+    localStorage.removeItem('stockx-email');
+    history.push('/');
+  };
+
   /** Update local state w/curr state of input elem */
 
   const handleChange = evt => {
@@ -77,7 +84,7 @@ function Account() {
       </div>
       <div className="container text-left col-md-6 offset-md-3 col-lg-4 offset-lg-4 py-5">
         <button className="btn btn-primary mr-3" onClick={logoutUser}>Logout</button>
-        <button className="btn btn-primary">Delete Account</button>
+        <button className="btn btn-primary" onClick={deleteUser}>Delete Account</button>
       </div>
     </div>
   );

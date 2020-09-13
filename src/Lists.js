@@ -25,7 +25,7 @@ function Lists() {
       getLists();
     }
     
-  }, [dispatch, isLoading, lists]);
+  }, [isLoading, lists]);
 
   async function removeList(id) {
     await dispatch(removeListAPI(id));
@@ -56,7 +56,7 @@ function Lists() {
         <AddListForm />
       </div>
       </div>
-      {lists ? 
+      {lists.length ? 
       <div className="list-container mt-5">
         {lists.map(l => (
           <List 

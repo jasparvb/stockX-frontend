@@ -14,7 +14,7 @@ function Alerts() {
     if (alerts[0]) {
       setTimeout(function() {
         dispatch(removeAlerts());
-      },7000);
+      },5000);
     }    
   })
   

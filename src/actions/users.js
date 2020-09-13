@@ -39,10 +39,23 @@ function register(data) {
 function updateUserApi(username, data) {
   return async function (dispatch) {
     try {
-      debugger;
       const user = await StockXApi.updateUser(username, data);
       dispatch(userUpdated(user));
       dispatch(addAlert(`User info update!`, "success"));
+    } catch(err) {
+      err.forEach(e => {
+        dispatch(addAlert(e, "danger"));
+      });
+    }
+  };
+}
+
+function deleteUserApi(username) {
+  return async function (dispatch) {
+    try {
+      const message = await StockXApi.deleteUser(username);
+      dispatch(logout());
+      dispatch(addAlert(message, "success"));
     } catch(err) {
       err.forEach(e => {
         dispatch(addAlert(e, "danger"));
@@ -68,4 +81,4 @@ function loadUser(token, username, email) {
 }
 
 
-export { login, register, logout, loadUser, updateUserApi };
+export { login, register, logout, loadUser, updateUserApi, deleteUserApi };

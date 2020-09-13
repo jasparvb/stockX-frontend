@@ -65,12 +65,17 @@ class StockXApi {
         let res = await this.request(`users/${username}`);
         return res.user;
     }
-
+    
     static async updateUser(username, data) {
         let res = await this.request(`users/${username}`, data, "patch");
         return res.user;
     }
     
+    static async deleteUser(username) {
+        let res = await this.request(`users/${username}`, {username}, "delete");
+        return res.message;
+    }
+
     static async getStock(id) {
         let res = await this.request(`stocks/${id}`);
         return res.stock;
