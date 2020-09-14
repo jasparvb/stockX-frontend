@@ -24,11 +24,14 @@ function Account() {
 
   //bounces user to home page if not logged in
   useEffect(() => {
-    if (!user.token) {
-      dispatch(addAlert(`You must be logged in to view that page!`, "danger"));
-      history.push('/login');
+    function redirect() {
+      if (!user.token) {
+        //dispatch(addAlert(`You must be logged in to view that page!`, "danger"));
+        history.push('/login');
+      }
     }
-  },[]);
+    redirect();
+  },[history, dispatch, user.token]);
 
   async function handleSubmit(evt) {
     evt.preventDefault();

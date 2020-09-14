@@ -52,7 +52,7 @@ function StockDetails() {
       setPriceChange({price, percent, down});
     }
     
-  }, [missing, ticker, dispatch, stock]);
+  }, [missing, ticker, dispatch, stock, history]);
 
   //load stock quote from api if not in state
   useEffect(function() {
@@ -66,7 +66,7 @@ function StockDetails() {
     if(missingLists && user.token) {
       dispatch(getListsAPI());
     }
-  }, [missingLists, dispatch, lists]);
+  }, [missingLists, dispatch, lists, user.token]);
 
   //Placeholder until data is loaded
   if (missing) return "Loading...";
