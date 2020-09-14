@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Account container-fluid"
+  >
+    <div
+      class="row p-3"
+    >
+      <div
+        class="text-left col-md-6 offset-md-3 col-lg-4 offset-lg-4 my-3"
+      >
+        <h3>
+          Username: 
+        </h3>
+        <p>
+          Email: 
+        </p>
+        <button
+          class="btn btn-primary btn-sm"
+        >
+          Edit
+        </button>
+      </div>
+    </div>
+    <div
+      class="container text-left col-md-6 offset-md-3 col-lg-4 offset-lg-4 py-5"
+    >
+      <button
+        class="btn btn-primary mr-3"
+      >
+        Logout
+      </button>
+      <button
+        class="btn btn-primary"
+      >
+        Delete Account
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

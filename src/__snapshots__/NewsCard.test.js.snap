@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <a
+    class="news text-dark"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <div
+      class="NewsCard col-md-10"
+    >
+      <div
+        class="box"
+      >
+        <div
+          class="headline-box"
+        >
+          <p
+            class="mb-0"
+          />
+          <h4 />
+        </div>
+        <div
+          class="image-box"
+        >
+          <img />
+        </div>
+      </div>
+    </div>
+  </a>
+</DocumentFragment>
+`;

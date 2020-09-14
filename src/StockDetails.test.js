@@ -1,18 +1,25 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import App from './App';
+import StockDetails from './StockDetails';
 import { Provider } from "react-redux";
 import rootReducer from "./reducers/root";
-import { createStore } from "redux";
 import { BrowserRouter } from "react-router-dom";
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-const store = createStore(rootReducer);
+const store = createStore(
+  rootReducer,
+  composeWithDevTools(
+    applyMiddleware(thunk)
+  )
+);
 
 it("renders without crashing", function() {
   render(
     <Provider store={store}>
       <BrowserRouter>
-        <App />
+        <StockDetails />
       </BrowserRouter>
     </Provider>);
 });

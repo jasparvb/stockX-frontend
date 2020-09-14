@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Search"
+  >
+    <form
+      autocomplete="off"
+      class="form-inline"
+    >
+      <input
+        class="form-control form-control-lg flex-grow-1"
+        name="query"
+        placeholder="Search for stock or mutual fund"
+        value=""
+      />
+      <div
+        class="autocomplete "
+      />
+    </form>
+  </div>
+</DocumentFragment>
+`;

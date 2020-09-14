@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="ListItem px-5"
+  >
+    <a
+      class="text-left col-md-5"
+      href="/undefined"
+    >
+      <h4
+        class="mb-0"
+      />
+      <p />
+    </a>
+    <div
+      class="text-right col-md-5"
+    >
+      <h4
+        class="mb-0"
+      >
+        $112.00
+      </h4>
+      <p
+        class="percent-change down"
+      >
+        -1.31%
+      </p>
+    </div>
+    <button
+      class="btn remove"
+    >
+      <i
+        class="fas fa-times"
+      />
+    </button>
+  </div>
+</DocumentFragment>
+`;

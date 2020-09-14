@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import App from './App';
+import NavBar from './NavBar';
 import { Provider } from "react-redux";
 import rootReducer from "./reducers/root";
 import { createStore } from "redux";
@@ -12,7 +12,19 @@ it("renders without crashing", function() {
   render(
     <Provider store={store}>
       <BrowserRouter>
-        <App />
+        <NavBar />
       </BrowserRouter>
     </Provider>);
 });
+
+it("matches snapshot", function() {
+  const { asFragment } = render(
+    <Provider store={store}>
+      <BrowserRouter>
+        <NavBar />
+      </BrowserRouter>
+    </Provider>
+  );
+  expect(asFragment()).toMatchSnapshot();
+});
+

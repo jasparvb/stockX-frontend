@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="Home col-md-12 p-0"
+  >
+    <div
+      class="banner container-fluid text-center text-light m-0 p-5"
+      style="background-image: url(stockX-bg.jpg);"
+    >
+      <div
+        class="content-wrapper mb-5"
+      >
+        <h1
+          class="mb-3 font-weight-bold"
+        >
+          StockX
+        </h1>
+        <p
+          class="lead"
+        >
+          Start tracking your financial data today
+        </p>
+        <a
+          class="btn btn-primary btn-lg px-5 py-3 my-5"
+          href="/login"
+        >
+          Log In or Register
+        </a>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;
