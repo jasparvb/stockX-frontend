@@ -6,6 +6,16 @@
   color: black;
 }
 
+.navbar .navbar-nav .nav-item {
+  padding: 0 1rem;
+}
+
 .navbar .navbar-nav .nav-item a.nav-link:hover {
   color: rgb(0 200 5);
+}
+
+@media (max-width: 613px) {
+  .navbar .navbar-nav .nav-item {
+    padding: .5rem 0 .5rem 1rem;
+  }
 }

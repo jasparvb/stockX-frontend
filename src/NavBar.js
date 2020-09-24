@@ -19,20 +19,20 @@ function Navbar() {
     <Search />
     {user.token ?
       <ul className="navbar-nav flex-row">
-        <li className="nav-item px-3">
+        <li className="nav-item">
           <Link to="/lists" className="nav-link">Watchlists</Link>
         </li>
-        <li className="nav-item px-3">
+        <li className="nav-item">
           <Link to="/account" className="nav-link">Account</Link>
         </li>
       </ul>
       :
       <ul className="navbar-nav flex-row">
-        <li className="nav-item px-3">
+        <li className="nav-item">
           <Link to="/login" className="nav-link">Log In</Link>
         </li>
-        <li className="nav-item px-3">
-          <Link to="/login" className="btn btn-primary btn-md mr-4 mt-0">Sign Up</Link>
+        <li className="nav-item">
+          <Link to="/login" className="btn btn-primary btn-md mt-0">Sign Up</Link>
         </li>
       </ul>
     }
