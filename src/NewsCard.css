@@ -49,3 +49,9 @@
 a.news:hover {
   text-decoration: none;
 }
+
+@media (max-width: 613px) {
+  .NewsCard .box {
+    flex-wrap: wrap;
+  }
+}

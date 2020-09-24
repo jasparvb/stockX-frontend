@@ -29,3 +29,13 @@
 .Home {
   overflow: hidden;
 }
+
+@media (max-width: 613px) {
+  .Home h1 {
+    font-size: 6rem;
+  }
+
+  .Home .lead {
+    font-size: 1.4rem;
+  }
+}

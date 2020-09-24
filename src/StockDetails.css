@@ -64,3 +64,21 @@
 .StockDetails .price-change.down {
   color: rgb(255 80 0);
 }
+
+@media (max-width: 613px) {
+  .StockDetails {
+    margin: 0 1rem;
+  }
+  .StockDetails .graph {
+    margin: 20px 0 40px;
+  }
+  .StockDetails .graph-nav {
+    margin: 20px 0;
+  }
+  .StockDetails .graph-nav button {
+    margin: 0 7px;
+  }
+  .StockDetails .add-stock-form button {
+    float: none !important;
+  }
+}

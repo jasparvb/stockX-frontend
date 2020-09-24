@@ -29,3 +29,10 @@ input.form-control.form-control-lg {
   border-color: #ced4da;
   box-shadow: none;
 }
+
+@media (max-width: 613px) {
+  .Search {
+    width: 100%;
+    order: 3;
+  }
+}
