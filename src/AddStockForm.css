@@ -34,3 +34,11 @@
   height: 40px;
 }
 
+@media (max-width: 460px) {
+  .AddStockForm .form-container {
+    margin-left: -184px;
+  }
+  .AddStockForm .form-container .form-column {
+    min-width: 350px;
+  }
+}
